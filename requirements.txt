@@ -1,0 +1,8 @@
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+mercurial==7.2
+psycopg2-binary==2.9.11
+setuptools==80.10.2
+Trac==1.6
+TracGraphviz==1.4.0.3
+TracMercurial==1.0.0.12
