@@ -28,6 +28,7 @@ docker run \
   -e USER_GID=1030 \
   -e TRAC_USER_PASS_1=sfmunoz:abcd1234 \
   -e TRAC_USER_PASS_2=admin:abcd1234 \
+  -e TRAC_UMASK=022 \
   -e REALM=my-server \
   -v /home/sfmunoz/trac-env:/trac-env \
   -v /home/sfmunoz/.hg:/home/sfmunoz/.hg:ro \
@@ -42,6 +43,7 @@ Where:
 - `TRAC_USER_PASS_N`: `user:pass`
   - username:password pair
   - At least `TRAC_USER_PASS_1` must be provided to be able to access the server
+- `TRAC_UMASK`: `tracd --umask` parameter (default: `077`, which is more restrictive than `tracd → 022` default)
 - `REALM`: the realm used for authentication (default: `trac-server`)
 - `/trac-env` is the Trac environment; must be mounted read-write
 - Optional: mount repositories if they are enabled in trac (read-onlyi recommended)

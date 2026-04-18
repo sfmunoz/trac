@@ -5,6 +5,7 @@ set -e -o pipefail
 [ "$USER_UID" = "" ] && USER_UID="1000"
 [ "$USER_GID" = "" ] && USER_GID="1000"
 [ "$REALM" = "" ] && REALM="trac-server"
+[ "$TRAC_UMASK" = "" ] && TRAC_UMASK="077"
 
 export REALM
 
@@ -39,6 +40,7 @@ exec tracd \
   -p 8080 \
   --user trac \
   --group trac \
+  --umask $TRAC_UMASK \
   -s \
   -a "trac-env,./passwd,${REALM}" \
   /trac-env
