@@ -1,6 +1,12 @@
 # Trac
 
-An ad hoc [Trac](https://trac.edgewall.org/) Docker image
+An ad hoc [Trac](https://trac.edgewall.org/) Docker image.
+
+## Motivation
+
+This repository serves as a preservation-oriented snapshot of a legacy Trac environment. Given that Trac is an aging platform with diminishing maintenance activity and uncertain compatibility with future versions of Python, there is a non-trivial risk that existing Trac instances may become difficult—or impossible—to run in modern environments.
+
+The project was created to mitigate that risk by capturing a stable, self-contained representation of a Trac deployment. Its primary objective is to ensure long-term accessibility to historical data (tickets, wiki content, and metadata) independent of the operational viability of the original Trac system.
 
 ## Usage
 
