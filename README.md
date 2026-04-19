@@ -1,12 +1,6 @@
-# trac
+# Trac
 
 An ad hoc [Trac](https://trac.edgewall.org/) Docker image
-
-Images are published to the GitHub Container Registry:
-
-```
-ghcr.io/sfmunoz/trac
-```
 
 ## Usage
 
@@ -26,8 +20,8 @@ docker run \
   --rm -p 127.0.0.1:8080:8080 \
   -e USER_UID=1030 \
   -e USER_GID=1030 \
-  -e TRAC_USER_PASS_1=sfmunoz:abcd1234 \
-  -e TRAC_USER_PASS_2=admin:abcd1234 \
+  -e TRAC_USER_PASS_1=sfmunoz:changeme111 \
+  -e TRAC_USER_PASS_2=admin:changeme222 \
   -e TRAC_UMASK=022 \
   -e REALM=my-server \
   -v /home/sfmunoz/trac-env:/trac-env \
@@ -46,25 +40,14 @@ Where:
 - `TRAC_UMASK`: `tracd --umask` parameter (default: `077`, which is more restrictive than `tracd → 022` default)
 - `REALM`: the realm used for authentication (default: `trac-server`)
 - `/trac-env` is the Trac environment; must be mounted read-write
-- Optional: mount repositories if they are enabled in trac (read-onlyi recommended)
+- Optional: mount mercurial repositories if they are enabled in trac (read-only recommended)
 
 ## Devel
-
-### Python virtualenv
-
-- `pip install Trac`
-- `pip install TracGraphviz`
-- `pip install psycopg2-binary`
-- `pip install mercurial`
-- `pip install "setuptools<81" --force-reinstall --no-cache-dir`
-  - Version forced to prevent "ModuleNotFoundError: No module named 'pkg_resources'"
-
-**Result**: [requirements.txt](requirements.txt) file
 
 ### Generating local image (devel)
 
 ```
-$ docker build -t ghcr.io/sfmunoz/trac:1.6-1 .
+$ docker build -t ghcr.io/sfmunoz/trac:devel .
 ```
 
 ### Image generation on git-push
@@ -83,3 +66,16 @@ The following tags will be pushed to `ghcr.io`:
 - `ghcr.io/sfmunoz/trac:<full-version>` (e.g. `1.6-1`)
 - `ghcr.io/sfmunoz/trac:<trac-version>` (e.g. `1.6`)
 - `ghcr.io/sfmunoz/trac:latest`
+
+## Python virtualenv: requirements.txt
+
+[requirements.txt](requirements.txt) with the following command sequence:
+
+- `pip install Trac`
+- `pip install TracGraphviz`
+- `pip install psycopg2-binary`
+- `pip install mercurial`
+- `pip install "setuptools<81" --force-reinstall --no-cache-dir`
+  - Version forced to prevent "ModuleNotFoundError: No module named 'pkg_resources'"
+
+Once everything is installed **requirements.txt** is created by running `pip freeze > requirements.txt`
