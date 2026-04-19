@@ -55,15 +55,15 @@ $ docker build -t ghcr.io/sfmunoz/trac:devel .
 Images are built automatically by the [GitHub Actions workflow](.github/workflows/docker-build.yml) whenever a version tag is pushed to this repository. The tag must match the upstream Trac release version with a `v` prefix.
 
 ```sh
-git tag v1.6-1
-git push origin v1.6-1
+git tag v1.6-2
+git push origin v1.6-2
 ```
 
-The tag format is `v<trac-version>-<build-number>` (e.g. `v1.6-1`, `v1.6-2`, …).
+The tag format is `v<trac-version>-<build-number>` (e.g. `v1.6-1`, `v1.6-2`, `v1.6-3`, …).
 
 The following tags will be pushed to `ghcr.io`:
 
-- `ghcr.io/sfmunoz/trac:<full-version>` (e.g. `1.6-1`)
+- `ghcr.io/sfmunoz/trac:<full-version>` (e.g. `1.6-2`)
 - `ghcr.io/sfmunoz/trac:<trac-version>` (e.g. `1.6`)
 - `ghcr.io/sfmunoz/trac:latest`
 
