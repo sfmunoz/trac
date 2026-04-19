@@ -8,6 +8,8 @@ This repository serves as a preservation-oriented snapshot of a legacy Trac envi
 
 The project was created to mitigate that risk by capturing a stable, self-contained representation of a Trac deployment. Its primary objective is to ensure long-term accessibility to historical data (tickets, wiki content, and metadata) independent of the operational viability of the original Trac system.
 
+The image only contains the packages required to access a cold-stored Trac environment. Because of that no Git support is included provided that Mercurial was the VCS used (adding GIT would mean a +40% image size increase)
+
 ## Usage
 
 ### Pull Docker image
